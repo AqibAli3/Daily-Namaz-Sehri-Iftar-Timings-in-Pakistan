@@ -5,7 +5,6 @@ from datetime import datetime, timedelta
 # Set page title and favicon
 st.set_page_config(page_title="Daily Namaz Timings in Pakistan by Syed Aqib Ali", page_icon="🕌")
 
-
 # Define the cities
 cities = {
     "Karachi": "Karachi",
@@ -69,6 +68,7 @@ def display_namaz_timings(timings, jafri_sehri, jafri_iftar, next_date_sehri_han
     st.write(f"**Fajr:** {convert_to_12_hour_format(timings['Fajr'])}")
     st.write(f"**Dhuhr:** {convert_to_12_hour_format(timings['Dhuhr'])}")
     st.write(f"**Asr (Hanafi):** {convert_to_12_hour_format(timings['Asr'])}")  
+    st.write(f"**Maghrib:** {convert_to_12_hour_format(timings['Maghrib'])}")
     st.write(f"**Isha:** {convert_to_12_hour_format(timings['Isha'])}")
 
     # Highlight Sehri and Iftar times
