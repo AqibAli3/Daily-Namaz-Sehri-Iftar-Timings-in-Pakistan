@@ -5,6 +5,41 @@ from datetime import datetime, timedelta
 # Set page title and favicon
 st.set_page_config(page_title="Daily Namaz Timings in Pakistan by Syed Aqib Ali", page_icon="🕌")
 
+# Define custom CSS to style the app
+custom_css = """
+<style>
+.contact-details {
+    text-align: center;
+    margin-top: 20px;
+}
+.contact-details p {
+    font-size: 18px;
+    font-weight: bold;
+}
+.contact-details a {
+    margin: 0 10px;
+    display: inline-block;
+}
+.contact-details img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.2s;
+}
+.contact-details img:hover {
+    transform: scale(1.2);
+}
+.title-header {
+    text-align: center;
+    color: #2E8B57;
+}
+.task-section, .namaz-timings {
+    background-color: #E6F2FF;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+</style>
+"""
 # Define the cities
 cities = {
     "Karachi": "Karachi",
@@ -124,6 +159,26 @@ def main():
             display_namaz_timings(timings, jafri_sehri, jafri_iftar, next_date_sehri_hanafi, next_date_sehri_jafri, today_date, tomorrow_date)
         else:
             st.error("Failed to fetch Namaz timings. Please try again later.")
-
+ # Add contact details at the bottom
+    st.markdown(
+        """
+        <div class="contact-details">
+            <p>Contact Me:</p>
+            <a href="https://www.linkedin.com/in/syed-aqib-ali/" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn">
+            </a>
+            <a href="https://github.com/AqibAli3" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
+            </a>
+            <a href="https://wa.me/+923158796106" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+            </a>
+            <a href="mailto:shaali254@gmail.com">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Mail_%28iOS%29.svg" alt="Email">
+            </a>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 if __name__ == "__main__":
     main()
